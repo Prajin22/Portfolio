@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Personal Portfolio Website
 
 A modern, responsive portfolio website built with Flask, showcasing my projects, skills, and services.
@@ -83,3 +84,6 @@ MIT License - feel free to use this template for your own portfolio!
 - GitHub: [Prajin-S](https://github.com/Prajin-S)
 - LinkedIn: [prajinbreto](https://www.linkedin.com/in/prajinbreto)
 - Email: prajinbreto@gmail.com 
+=======
+# Portfolio
+>>>>>>> origin/main
