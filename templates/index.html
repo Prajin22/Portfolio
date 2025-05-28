@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prajin's Portfolio - Front-End & Back-End Developer specializing in responsive web development and creative solutions">
+    <title>Prajin's Portfolio & Art</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#home" class="logo">Prajin</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="glitch-text">Welcome To My Learning Journey</h1>
+                <p class="impact-statement">Passionate Computer Science student exploring the world of web development</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary" onclick="location.href='#portfolio'">See My Work</button>
+                    <button class="cta-button secondary" onclick="location.href='#contact'">Hire Me</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10">0</span>
+                    <span class="stat-label">Projects Built</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Years of Learning</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Technologies Mastered</span>
+                </div>
+            </div>
+        </div>
+        <div class="animated-shape"></div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-picture">
+                    <img src="/static/images/profile.jpg" alt="Picture of Prajin">
+                    <div class="profile-overlay">
+                        <div class="social-icons">
+                            <a href="https://github.com/Prajin-S" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/prajinbreto" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/prajinbreto" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Prajin</h3>
+                    <h4>Computer Science Student | Aspiring Developer</h4>
+                    <p class="bio">
+                        Hi, I'm Prajin, a passionate Computer Science student at Hindustan Institute of Technology and Science, 
+                        specializing in AI/DS. While I'm still on my learning journey, I'm deeply committed to mastering web development 
+                        and creating innovative solutions. I combine my academic knowledge with hands-on practice through personal projects 
+                        and continuous learning.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                    <div class="tech-stack">
+                        <h4>Tech Stack</h4>
+                        <div class="tech-icons">
+                            <i class="fab fa-html5" title="HTML5"></i>
+                            <i class="fab fa-css3-alt" title="CSS3"></i>
+                            <i class="fab fa-js" title="JavaScript"></i>
+                            <i class="fab fa-react" title="React"></i>
+                            <i class="fab fa-node-js" title="Node.js"></i>
+                            <i class="fab fa-python" title="Python"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <p class="section-subtitle">Explore my latest projects and creative endeavors</p>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="/static/images/project1.jpg" alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>E-commerce Platform</h3>
+                                <p>A full-stack e-commerce solution with React and Node.js</p>
+                                <div class="portfolio-tags">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
+                                    <a href="https://github.com/Prajin-S" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-image">
+                        <img src="/static/images/project2.jpg" alt="UI/UX Design Project">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Dashboard UI Design</h3>
+                                <p>Modern admin dashboard with intuitive user interface</p>
+                                <div class="portfolio-tags">
+                                    <span>Figma</span>
+                                    <span>UI/UX</span>
+                                    <span>Prototype</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-link"></i> View Design</a>
+                                    <a href="https://github.com/Prajin-S" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-image">
+                        <img src="/static/images/project3.jpg" alt="Mobile App Project">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Fitness Tracker App</h3>
+                                <p>Cross-platform mobile app for tracking workouts and nutrition</p>
+                                <div class="portfolio-tags">
+                                    <span>React Native</span>
+                                    <span>Firebase</span>
+                                    <span>Redux</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-link"></i> App Store</a>
+                                    <a href="https://github.com/Prajin-S" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="/static/images/project4.jpg" alt="Blog Platform">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h3>Blog Platform</h3>
+                                <p>Content management system with markdown support</p>
+                                <div class="portfolio-tags">
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>SQLite</span>
+                                </div>
+                                <div class="portfolio-links">
+                                    <a href="#" class="project-link" target="_blank"><i class="fas fa-link"></i> Live Demo</a>
+                                    <a href="https://github.com/Prajin-S" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Services I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Building responsive websites with modern technologies</p>
+                    <ul class="service-features">
+                        <li>Frontend Development</li>
+                        <li>Responsive Design</li>
+                        <li>Basic Backend Integration</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating user-friendly interfaces</p>
+                    <ul class="service-features">
+                        <li>Wireframing</li>
+                        <li>Basic Prototyping</li>
+                        <li>User-Centered Design</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Learning Projects</h3>
+                    <p>Academic and personal development projects</p>
+                    <ul class="service-features">
+                        <li>Course Projects</li>
+                        <li>Personal Experiments</li>
+                        <li>Open Source Contribution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-section">
+                <h3>Let's Work Together</h3>
+                <p class="section-subtitle">Choose how you'd like to collaborate with me</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h4>Open Source Projects</h4>
+                        <div class="price">Free</div>
+                        <ul>
+                            <li>Contribute to open source</li>
+                            <li>Learn from experienced developers</li>
+                            <li>Build your portfolio</li>
+                            <li>Network with other developers</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="location.href='#contact'">Join Project</button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h4>Internship Opportunities</h4>
+                        <div class="price">Open</div>
+                        <ul>
+                            <li>Part-time availability</li>
+                            <li>Flexible with academic schedule</li>
+                            <li>Eager to learn and grow</li>
+                            <li>Looking for mentorship</li>
+                        </ul>
+                        <button class="pricing-btn">Apply Now</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Academic Projects</h4>
+                        <div class="price">Collaborative</div>
+                        <ul>
+                            <li>Research collaborations</li>
+                            <li>Course projects</li>
+                            <li>Hackathons</li>
+                            <li>Learning opportunities</li>
+                        </ul>
+                        <button class="pricing-btn">Let's Discuss</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Freelance Services</h4>
+                        <div class="price">Project Based</div>
+                        <ul>
+                            <li>Web Development</li>
+                            <li>UI/UX Design</li>
+                            <li>Responsive Websites</li>
+                            <li>Custom Solutions</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="location.href='#contact'">Get Quote</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Virtual Assistant</h4>
+                        <div class="price">Hourly Rate</div>
+                        <ul>
+                            <li>Data Entry & Management</li>
+                            <li>Email & Calendar Management</li>
+                            <li>Basic Research Tasks</li>
+                            <li>Document Preparation</li>
+                        </ul>
+                        <button class="pricing-btn" onclick="location.href='#contact'">Hire VA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <span class="focus-border"></span>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Send Message</span>
+                        <span class="button-loader"></span>
+                    </button>
+                    <div class="form-message"></div>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>prajinbreto@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 7200116984</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/prajinbreto" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Prajin-S" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/prajinbreto" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/prajinbreto" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Prajin</h3>
+                    <p>Creating digital experiences that matter</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on my latest work</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prajin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
