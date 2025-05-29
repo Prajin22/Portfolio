@@ -680,3 +680,10 @@ const animateOnScroll = () => {
 
 window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
+
+// GSAP Animations for Home Section
+gsap.from(".glitch-text", { duration: 1, y: 50, opacity: 0, ease: "power3.out" });
+gsap.from(".impact-statement", { duration: 1, y: 50, opacity: 0, ease: "power3.out", delay: 0.2 });
+gsap.from(".hero-buttons .cta-button", { duration: 0.8, y: 50, opacity: 0, ease: "power3.out", stagger: 0.15, delay: 0.4 });
+gsap.from(".stat-item", { duration: 0.8, y: 50, opacity: 0, ease: "power3.out", stagger: 0.2, delay: 0.6 });
+gsap.from(".scroll-indicator", { duration: 1, y: 20, opacity: 0, ease: "power3.out", delay: 1 });
