@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
     });
 
-    // Enhanced smooth scroll
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -329,14 +329,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: {
-                        y: targetElement,
-                        offsetY: 70
-                    },
-                    ease: "power3.inOut"
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+
+                // Scroll to the target section
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
+
+                // Update active state in navigation
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             }
         });
     });
@@ -425,35 +434,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Navigation highlight on scroll
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
-
+// Update active navigation link on scroll
 window.addEventListener('scroll', () => {
-    let current = '';
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentSection = '';
+    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+        if (window.pageYOffset >= sectionTop - 200) {
+            currentSection = section.getAttribute('id');
         }
     });
 
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
+        if (link.getAttribute('href') === `#${currentSection}`) {
             link.classList.add('active');
         }
-    });
-});
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
     });
 });
 
