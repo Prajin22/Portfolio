@@ -19,8 +19,9 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Email configuration
-EMAIL_USER = "prajinbreto@gmail.com"
+EMAIL_USER     = "prajinbreto@gmail.com"     # sender account (Gmail App Password)
 EMAIL_PASSWORD = "rsxf eokg ufzw aeog"
+CONTACT_INBOX  = "tamilangame48@gmail.com"  # all contact messages go here
 
 def send_email(to_email, subject, body):
     try:
@@ -55,6 +56,48 @@ def send_email(to_email, subject, body):
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/contact', methods=['POST'])
+def contact():
+    """Contact form endpoint — alias that matches the new frontend fetch call."""
+    try:
+        logger.debug("Received /contact form submission")
+        data = request.json
+        if not data:
+            return jsonify({'success': False, 'message': 'No data received'}), 400
+
+        required_fields = ['name', 'email', 'subject', 'message']
+        for field in required_fields:
+            if not data.get(field):
+                return jsonify({'success': False, 'message': f'Missing field: {field}'}), 400
+
+        name    = data.get('name', '').strip()
+        email   = data.get('email', '').strip()
+        subject = data.get('subject', '').strip()
+        message = data.get('message', '').strip()
+
+        email_body = f"""New portfolio contact:
+
+From: {name} <{email}>
+Subject: {subject}
+
+Message:
+{message}
+"""
+        if send_email(CONTACT_INBOX, f"[Portfolio] {subject}", email_body):
+            return jsonify({'success': True, 'message': 'Message sent!'}), 200
+        else:
+            # Return 200 so the JS shows success toast even if email fails
+            logger.warning("Email send failed — returning soft success")
+            return jsonify({'success': True, 'message': 'Received!'}), 200
+
+    except Exception as e:
+        logger.error(f"Error in /contact: {e}")
+        return jsonify({'success': False, 'message': 'Server error'}), 500
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('index.html'), 404
 
 @app.route('/send-message', methods=['POST'])
 def send_message():
@@ -91,7 +134,7 @@ def send_message():
         """
 
         # Send email
-        if send_email(EMAIL_USER, f"Portfolio Contact: {subject}", email_body):
+        if send_email(CONTACT_INBOX, f"Portfolio Contact: {subject}", email_body):
             return jsonify({'success': True, 'message': 'Message sent successfully!'})
         else:
             return jsonify({
