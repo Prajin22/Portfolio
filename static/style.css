@@ -23,9 +23,9 @@
   --clr-teal-900:     #134E4A;
 
   /* Semantic */
-  --clr-bg:           #F0FDFA;
-  --clr-bg-alt:       #CCFBF1;
-  --clr-surface:      rgba(255,255,255,0.85);
+  --clr-bg:           rgba(240, 253, 250, 0.65);
+  --clr-bg-alt:       rgba(204, 251, 241, 0.65);
+  --clr-surface:      rgba(255, 255, 255, 0.7);
   --clr-text:         #134E4A;
   --clr-text-muted:   #0F766E;
   --clr-border:       rgba(15,118,110,0.15);
@@ -61,9 +61,9 @@
 
 /* Dark Mode */
 [data-theme="dark"] {
-  --clr-bg:       #0D1F1E;
-  --clr-bg-alt:   #0F2A28;
-  --clr-surface:  rgba(15,42,40,0.9);
+  --clr-bg:       rgba(13, 31, 30, 0.65);
+  --clr-bg-alt:   rgba(15, 42, 40, 0.65);
+  --clr-surface:  rgba(15, 42, 40, 0.75);
   --clr-text:     #CCFBF1;
   --clr-text-muted: #5EEAD4;
   --clr-border:   rgba(20,184,166,0.2);
@@ -81,7 +81,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--clr-bg);
+  background-color: transparent;
   color: var(--clr-text);
   line-height: 1.7;
   font-size: 16px;
@@ -1719,4 +1719,15 @@ footer {
   .hero-stats { gap: 1.5rem; }
   .hero-buttons { flex-direction: column; }
   .btn { justify-content: center; }
+}
+
+/* ── 3D CANVAS ─────────────────────────────────────────────── */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }

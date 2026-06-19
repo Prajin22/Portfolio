@@ -6,7 +6,7 @@
 'use strict';
 
 // ── GSAP REGISTRATION ──────────────────────────────────────
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
 // ── DOM REFS ────────────────────────────────────────────────
 const html          = document.documentElement;
@@ -418,3 +418,116 @@ if (backToTop) {
 
 console.log('%c👋 Hey there! Check out my GitHub: https://github.com/Prajin22',
   'color:#0F766E; font-size:14px; font-weight:bold; padding:4px;');
+
+// ── 3D BACKGROUND (THREE.JS + GSAP) ─────────────────────────
+(function init3DBackground() {
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+  // Scene setup
+  const scene = new THREE.Scene();
+  
+  // Camera setup
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 30;
+
+  // Renderer setup
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // optimize performance
+
+  // Create Particles
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particlesCount = window.innerWidth < 768 ? 400 : 900; // less particles on mobile
+  const posArray = new Float32Array(particlesCount * 3);
+
+  for (let i = 0; i < particlesCount * 3; i++) {
+    // Spread particles across a wide area
+    posArray[i] = (Math.random() - 0.5) * 100;
+  }
+
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+  // Material: Teal glow
+  const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.15,
+    color: 0x14B8A6,
+    transparent: true,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending
+  });
+
+  // Mesh
+  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particlesMesh);
+
+  // Mouse interactivity (Parallax)
+  let mouseX = 0;
+  let mouseY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) - 0.5;
+    mouseY = (e.clientY / window.innerHeight) - 0.5;
+  });
+
+  // Animation Loop
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsedTime = clock.getElapsedTime();
+
+    // Subtle continuous rotation
+    particlesMesh.rotation.y = elapsedTime * 0.05;
+
+    // Mouse parallax effect
+    particlesMesh.rotation.x += (mouseY * 0.5 - particlesMesh.rotation.x) * 0.05;
+    particlesMesh.rotation.y += (mouseX * 0.5 - particlesMesh.rotation.y) * 0.05;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  });
+
+  // GSAP Scroll Integration
+  // Rotate the entire particle cloud as the user scrolls down
+  gsap.to(particlesMesh.rotation, {
+    x: 2,
+    z: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: document.body,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1 // smooth scrubbing
+    }
+  });
+
+  // Update particle color based on theme
+  function updateParticleColor() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    gsap.to(particlesMaterial.color, {
+      r: isDark ? 0x5E/255 : 0x0D/255, // 5EEAD4 (dark) vs 0D9488 (light)
+      g: isDark ? 0xEA/255 : 0x94/255,
+      b: isDark ? 0xD4/255 : 0x88/255,
+      duration: 1
+    });
+  }
+
+  // Hook into theme toggle
+  const themeToggles = document.querySelectorAll('.theme-toggle');
+  themeToggles.forEach(btn => btn.addEventListener('click', () => {
+    setTimeout(updateParticleColor, 50); // wait for theme attribute to update
+  }));
+  
+  // Initial color set
+  updateParticleColor();
+
+})();
