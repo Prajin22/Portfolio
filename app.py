@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 # Email configuration
 EMAIL_USER     = "prajinbreto@gmail.com"     # sender account (Gmail App Password)
-EMAIL_PASSWORD = "rsxf eokg ufzw aeog"
+EMAIL_PASSWORD = "Aasai123$"
 CONTACT_INBOX  = "tamilangame48@gmail.com"  # all contact messages go here
 
 def send_email(to_email, subject, body):
